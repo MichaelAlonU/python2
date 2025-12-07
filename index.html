@@ -65,7 +65,7 @@
 
     <h1>Items</h1>
 
-    <!-- טבלת מוצרים -->
+    
     <table>
         <thead>
             <tr>
@@ -90,11 +90,10 @@
 <script>
     const API = "https://python2-m4qb.onrender.com/items";
 
-    // טוען את כל הנתונים בעת פתיחת הדף
     async function loadItems() {
         const res = await fetch(API);
         const items = await res.json();
-
+        console.log(items);
         const tbody = document.getElementById("items-body");
         tbody.innerHTML = "";
 
@@ -124,14 +123,14 @@
 
         if (result.ok) {
             document.getElementById("add-form").reset();
-            loadItems(); // רענון הטבלה
+            loadItems();
         } else {
             alert("Error adding item");
         }
     });
 
-    loadItems(); // הפעלה ראשונית
-//save
+    loadItems(); 
+
 </script>
 
 </body>
