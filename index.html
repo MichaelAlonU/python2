@@ -93,7 +93,7 @@
     async function loadItems() {
         const res = await fetch(API);
         const items = await res.json();
-        console.log(items);
+        console.log(`==========`, items);
         const tbody = document.getElementById("items-body");
         tbody.innerHTML = "";
 
