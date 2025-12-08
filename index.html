@@ -91,9 +91,21 @@
     const API = "https://python2-m4qb.onrender.com/items";
 
     async function loadItems() {
+    try {
         const res = await fetch(API);
+
+        if (!res.ok) {
+            console.error("Bad response:", res.status);
+            return;
+        }
+
         const items = await res.json();
-        console.log(`==========`, items);
+        console.log("Loaded:", items);
+
+        if (!Array.isArray(items)) {
+            console.error("Items is not an array:", items);
+            return;
+        }
         const tbody = document.getElementById("items-body");
         tbody.innerHTML = "";
 
